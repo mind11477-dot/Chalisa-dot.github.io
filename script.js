@@ -1,27 +1,62 @@
-:::writing{variant="standard" id="53172"}
-const dog = document.getElementById("dog");
-const bone = document.getElementById("bone");
+body{
+margin:0;
+}
 
-bone.addEventListener("click", () => {
+/* หน้าแรก */
+#home{
+background-image:url("background.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 
-    const x = Math.random() * (window.innerWidth - 150);
-    const y = 200 + Math.random() * 300;
+```
+height:100vh;
+```
 
-    bone.style.left = x + "px";
-    bone.style.top = y + "px";
+}
 
-    setTimeout(() => {
-        dog.style.left = x + "px";
-        dog.style.top = y + "px";
-    }, 300);
+/* หน้าเกม */
+#about{
+height:100vh;
+background:#f5f5f5;
 
-});
-:::
+```
+position:relative;
+overflow:hidden;
 
-แล้วใน `index.html` ต้องมี
+text-align:center;
+```
 
-```html
-<div id="dog">🐶</div>
-<div id="bone">🦴</div>
+}
 
-<script src="script.js"></script>
+#about h1{
+margin-top:30px;
+}
+
+#dog{
+position:absolute;
+left:100px;
+top:350px;
+
+```
+font-size:80px;
+
+transition:1s;
+```
+
+}
+
+#bone{
+position:absolute;
+left:500px;
+top:350px;
+
+```
+font-size:80px;
+
+cursor:pointer;
+
+transition:1s;
+```
+
+}
