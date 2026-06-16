@@ -1,62 +1,19 @@
-body{
-margin:0;
-}
+const dog = document.getElementById("dog");
+const bone = document.getElementById("bone");
 
-/* หน้าแรก */
-#home{
-background-image:url("background.jpg");
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
+bone.addEventListener("click", () => {
 
 ```
-height:100vh;
+const x = Math.random() * (window.innerWidth - 150);
+const y = 200 + Math.random() * 300;
+
+bone.style.left = x + "px";
+bone.style.top = y + "px";
+
+setTimeout(() => {
+    dog.style.left = x + "px";
+    dog.style.top = y + "px";
+}, 300);
 ```
 
-}
-
-/* หน้าเกม */
-#about{
-height:100vh;
-background:#f5f5f5;
-
-```
-position:relative;
-overflow:hidden;
-
-text-align:center;
-```
-
-}
-
-#about h1{
-margin-top:30px;
-}
-
-#dog{
-position:absolute;
-left:100px;
-top:350px;
-
-```
-font-size:80px;
-
-transition:1s;
-```
-
-}
-
-#bone{
-position:absolute;
-left:500px;
-top:350px;
-
-```
-font-size:80px;
-
-cursor:pointer;
-
-transition:1s;
-```
-
-}
+});
