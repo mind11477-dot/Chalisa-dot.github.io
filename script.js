@@ -1,17 +1,28 @@
-const dog = document.getElementById("dog");
-const bone = document.getElementById("bone");
+const img = document.getElementById("myImage");
 
-bone.addEventListener("click", () => {
+let offsetX = 0;
+let offsetY = 0;
+let isDragging = false;
 
-    const x = Math.random() * (window.innerWidth - 150);
-    const y = 200 + Math.random() * 300;
+img.addEventListener("mousedown", (e) => {
+  isDragging = true;
 
-    bone.style.left = x + "px";
-    bone.style.top = y + "px";
+  // เก็บตำแหน่งที่คลิกบนรูป
+  offsetX = e.offsetX;
+  offsetY = e.offsetY;
 
-    setTimeout(() => {
-        dog.style.left = x + "px";
-        dog.style.top = y + "px";
-    }, 300);
+  img.style.cursor = "grabbing";
+});
 
+document.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+
+  // คำนวณตำแหน่งใหม่
+  img.style.left = (e.pageX - offsetX) + "px";
+  img.style.top = (e.pageY - offsetY) + "px";
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+  img.style.cursor = "grab";
 });
