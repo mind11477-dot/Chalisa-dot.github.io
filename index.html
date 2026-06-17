@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feed Dog</title>
+  <meta charset="UTF-8">
+  <title>Drag Image</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    #myImage {
+      width: 150px;
+      position: absolute;
+      cursor: grab;
+    }
+  </style>
 </head>
 <body>
 
-    <section id="home"></section>
+<img id="myImage" src="your-image.jpg">
 
-    <section id="about">
-        <h1>🐶 Feed Dog</h1>
-        <p>คลิกกระดูกเพื่อให้หมาวิ่งไปคาบ</p>
-
-        <div id="dog">🐶</div>
-        <div id="bone">🦴</div>
-    </section>
-
-    <script src="script.js"></script>
-
+<script src="script.js"></script>
 </body>
 </html>
