@@ -19,30 +19,35 @@ document.addEventListener("mousemove", (e) => {
 });
 
 document.addEventListener("mouseup", () => {
+  if (!isDragging) return;
   isDragging = false;
 
   const imgRect = img.getBoundingClientRect();
   const zoneRect = dropZone.getBoundingClientRect();
 
-  // 🎯 หาจุดกลางของ dropZone
-  const zoneCenterX = zoneRect.left + zoneRect.width / 2;
-  const zoneCenterY = zoneRect.top + zoneRect.height / 2;
-
-  // 📏 หาจุดกลางของรูป
+  // จุดกึ่งกลางของรูป
   const imgCenterX = imgRect.left + imgRect.width / 2;
   const imgCenterY = imgRect.top + imgRect.height / 2;
 
-  // 🔍 คำนวณระยะห่าง
+  // จุดกึ่งกลางของช่อง
+  const zoneCenterX = zoneRect.left + zoneRect.width / 2;
+  const zoneCenterY = zoneRect.top + zoneRect.height / 2;
+
+  // ระยะห่าง
   const distance = Math.hypot(
-    zoneCenterX - imgCenterX,
-    zoneCenterY - imgCenterY
+    imgCenterX - zoneCenterX,
+    imgCenterY - zoneCenterY
   );
 
-  // ✨ ถ้าใกล้พอ → ดูดเข้าที่
-  if (distance < 80) {
-    img.style.left = (zoneRect.left + zoneRect.width / 2 - imgRect.width / 2) + "px";
-    img.style.top = (zoneRect.top + zoneRect.height / 2 - imgRect.height / 2) + "px";
+  // ถ้าอยู่ในระยะ 100px ให้ดูดเข้าช่อง
+  if (distance < 100) {
 
-    alert("✔ ดูดเข้าที่แล้ว!");
+    img.style.left =
+      (zoneCenterX - imgRect.width / 2) + "px";
+
+    img.style.top =
+      (zoneCenterY - imgRect.height / 2) + "px";
+
+    console.log("ดูดเข้าที่แล้ว");
   }
 });
