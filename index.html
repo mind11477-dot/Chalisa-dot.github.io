@@ -2,21 +2,25 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>Background Test</title>
+  <title>Scroll Down</title>
 
   <style>
-    body {
-      margin: 0;
-      height: 100vh;
+    body {margin: 0;}
+    .page {height: 100vh;}
 
-      background-image: url("bg1.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+    /* 🎯 หน้า 1 ใส่รูปพื้นหลัง */
+    .page1 {background: url("bg1.jpg") center/cover no-repeat;}
+    .page2 {background: #444;}
+    .page3 {background: #666;}
   </style>
 
 </head>
+
 <body>
+
+  <div class="page page1"></div>
+  <div class="page page2"></div>
+  <div class="page page3"></div>
+
 </body>
 </html>
