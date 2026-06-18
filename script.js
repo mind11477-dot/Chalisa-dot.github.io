@@ -5,14 +5,12 @@ let dragging = false;
 let offsetX = 0;
 let offsetY = 0;
 
-/* 🖱️ เริ่มลาก */
 oj1.addEventListener("mousedown", (e) => {
   dragging = true;
   offsetX = e.offsetX;
   offsetY = e.offsetY;
 });
 
-/* 🖱️ ลาก */
 document.addEventListener("mousemove", (e) => {
   if (!dragging) return;
 
@@ -20,7 +18,6 @@ document.addEventListener("mousemove", (e) => {
   oj1.style.top = (e.pageY - offsetY) + "px";
 });
 
-/* 🖱️ ปล่อย */
 document.addEventListener("mouseup", () => {
   dragging = false;
 
@@ -38,7 +35,6 @@ document.addEventListener("mouseup", () => {
     imgCenterY - zoneCenterY
   );
 
-  // 🎯 ถ้าเข้าใกล้ drop zone → ดูดเข้ากลาง
   if (distance < 250) {
     oj1.style.left = (zoneCenterX - imgRect.width / 2) + "px";
     oj1.style.top = (zoneCenterY - imgRect.height / 2) + "px";
