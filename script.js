@@ -40,7 +40,7 @@ document.addEventListener("mouseup", () => {
   );
 
   // ถ้าอยู่ในระยะ 100px ให้ดูดเข้าช่อง
-  if (distance < 100) {
+  if (distance < /250) {
 
     img.style.left =
       (zoneCenterX - imgRect.width / 2) + "px";
